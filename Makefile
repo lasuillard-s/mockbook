@@ -30,6 +30,7 @@ update:  ## Update deps and tools
 .PHONY: update
 
 run:  ## Run full stack
+	cd test
 	docker compose up --build
 .PHONY: run
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env bats
+
 export COMPOSE_FILE="test/docker-compose.yaml"
 
 setup_file() {

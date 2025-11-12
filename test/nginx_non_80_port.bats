@@ -1,3 +1,5 @@
+#!/usr/bin/env bats
+
 # Related issues: #31
 export COMPOSE_FILE="test/docker-compose.yaml"
 
