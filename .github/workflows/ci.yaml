@@ -26,13 +26,16 @@ jobs:
         run: uv sync
 
       - name: Lint (shfmt)
-        run: uv run shfmt -d .
+        run: uv run shfmt --diff .
 
       - name: Lint (shellcheck)
         run: uv run shellcheck $(git ls-files '*.sh')
 
       - name: Lint (ruff)
         run: uv run ruff check .
+
+      - name: Format check (ruff)
+        run: uv run ruff format --check .
 
       - name: Type check (mypy)
         run: uv run mypy --show-error-codes --pretty .

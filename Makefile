@@ -19,12 +19,14 @@ help: Makefile  ## Show help
 # =============================================================================
 install:  ## Install deps
 	git submodule update --init --recursive
+	pre-commit install --install-hooks
 	uv python install
 	uv sync --frozen
 .PHONY: install
 
 update:  ## Update deps and tools
 	uv sync --upgrade
+	pre-commit autoupdate
 .PHONY: update
 
 run:  ## Run full stack
@@ -56,7 +58,7 @@ ci: lint test  ## Run CI tasks
 .PHONY: ci
 
 format:  ## Run autoformatters
-	uv run shfmt -w .
+	uv run shfmt --write .
 	uv run ruff format .
 .PHONY: format
 
