@@ -13,7 +13,14 @@ dependencies = [
 dynamic = ["version"]
 
 [dependency-groups]
-dev = ["mypy~=1.19.0", "pre-commit>=4.5.1", "ruff~=0.14.4", "shellcheck-py>=0.11.0.1", "shfmt-py>=3.12.0.2", "types-requests>=2.32.0.20250328"]
+dev = [
+    "mypy~=1.19.0",
+    "pre-commit>=4.5.1",
+    "ruff~=0.14.4",
+    "shellcheck-py>=0.11.0.1",
+    "shfmt-py>=3.12.0.2",
+    "types-requests>=2.32.0.20250328",
+]
 
 [tool.uv]
 package = false
@@ -48,3 +55,6 @@ show_error_codes = true
 strict_optional = true
 no_implicit_reexport = false
 explicit_package_bases = true
+
+[tool.setuptools.packages.find]
+include = []
