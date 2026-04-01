@@ -19,14 +19,12 @@ help: Makefile  ## Show help
 # =============================================================================
 install:  ## Install deps
 	git submodule update --init --recursive
-	pre-commit install --install-hooks
 	uv python install
 	uv sync --frozen
 .PHONY: install
 
 update:  ## Update deps and tools
 	uv sync --upgrade
-	pre-commit autoupdate
 .PHONY: update
 
 run:  ## Run full stack
@@ -58,16 +56,14 @@ ci: lint test  ## Run CI tasks
 .PHONY: ci
 
 format:  ## Run autoformatters
-	uv run pre-commit run --all-files shfmt
-	uv run pre-commit run --all-files ruff-format
+	uv run shfmt -w .
+	uv run ruff format .
 .PHONY: format
 
 lint:  ## Run all linters
-	uv run pre-commit run --all-files trailing-whitespace
-	uv run pre-commit run --all-files end-of-file-fixer
-	uv run pre-commit run --all-files shellcheck
-	uv run pre-commit run --all-files ruff-check
-	uv run pre-commit run --all-files mypy
+	uv run shellcheck $$(git ls-files '*.sh')
+	uv run ruff check .
+	uv run mypy --show-error-codes --pretty .
 .PHONY: lint
 
 test:  ## Run tests

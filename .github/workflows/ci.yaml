@@ -25,8 +25,17 @@ jobs:
       - name: Install deps
         run: uv sync
 
-      - name: Run pre-commit
-        run: uv run pre-commit run --all-files
+      - name: Lint (shfmt)
+        run: uv run shfmt -d .
+
+      - name: Lint (shellcheck)
+        run: uv run shellcheck $(git ls-files '*.sh')
+
+      - name: Lint (ruff)
+        run: uv run ruff check .
+
+      - name: Type check (mypy)
+        run: uv run mypy --show-error-codes --pretty .
 
   test:
     runs-on: ubuntu-latest
