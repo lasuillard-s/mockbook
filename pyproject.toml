@@ -57,4 +57,4 @@ no_implicit_reexport = false
 explicit_package_bases = true
 
 [tool.setuptools.packages.find]
-include = []
+include = ["mockbook"]
