@@ -58,7 +58,7 @@ ci: lint test  ## Run CI tasks
 .PHONY: ci
 
 format:  ## Run autoformatters
-	uv run shfmt --write .
+	uv run shfmt --write $$(git ls-files '*.sh')
 	uv run ruff format .
 .PHONY: format
 
