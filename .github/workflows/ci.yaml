@@ -25,7 +25,7 @@ jobs:
       - name: Install deps
         run: uv sync
 
-      - name: Lint (shfmt)
+      - name: Format check (shfmt)
         run: uv run shfmt --diff $(git ls-files '*.sh')
 
       - name: Lint (shellcheck)
