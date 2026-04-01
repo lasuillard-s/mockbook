@@ -26,7 +26,7 @@ jobs:
         run: uv sync
 
       - name: Lint (shfmt)
-        run: uv run shfmt --diff .
+        run: uv run shfmt --diff $(git ls-files '*.sh')
 
       - name: Lint (shellcheck)
         run: uv run shellcheck $(git ls-files '*.sh')
