@@ -957,8 +957,8 @@ dev = [
     { name = "mypy", specifier = "~=1.19.0" },
     { name = "pre-commit", specifier = ">=4.5.1" },
     { name = "ruff", specifier = "~=0.14.4" },
-    { name = "shellcheck-py", specifier = ">=0.11.0.1" },
-    { name = "shfmt-py", specifier = ">=3.12.0.2" },
+    { name = "shellcheck-py", specifier = "~=0.11.0.1" },
+    { name = "shfmt-py", specifier = "~=3.12.0.2" },
     { name = "types-requests", specifier = ">=2.32.0.20250328" },
 ]
 
