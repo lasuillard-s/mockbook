@@ -25,9 +25,20 @@ jobs:
       - name: Install deps
         run: uv sync
 
-      - uses: pre-commit/action@v3.0.1
-      - uses: pre-commit-ci/lite-action@v1.1.0
-        if: always()
+      - name: Format check (shfmt)
+        run: uv run shfmt --diff $(git ls-files '*.sh')
+
+      - name: Lint (shellcheck)
+        run: uv run shellcheck $(git ls-files '*.sh')
+
+      - name: Lint (ruff)
+        run: uv run ruff check .
+
+      - name: Format check (ruff)
+        run: uv run ruff format --check .
+
+      - name: Type check (mypy)
+        run: uv run mypy --show-error-codes --pretty .
 
   test:
     runs-on: ubuntu-latest
