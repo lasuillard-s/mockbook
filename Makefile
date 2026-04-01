@@ -58,14 +58,16 @@ ci: lint test  ## Run CI tasks
 .PHONY: ci
 
 format:  ## Run autoformatters
-	pre-commit run --all-files shfmt
-	pre-commit run --all-files ruff-format
+	uv run pre-commit run --all-files shfmt
+	uv run pre-commit run --all-files ruff-format
 .PHONY: format
 
 lint:  ## Run all linters
-	pre-commit run --all-files shellcheck
-	pre-commit run --all-files ruff-check
-	pre-commit run --all-files mypy
+	uv run pre-commit run --all-files trailing-whitespace
+	uv run pre-commit run --all-files end-of-file-fixer
+	uv run pre-commit run --all-files shellcheck
+	uv run pre-commit run --all-files ruff-check
+	uv run pre-commit run --all-files mypy
 .PHONY: lint
 
 test:  ## Run tests
