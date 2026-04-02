@@ -2,24 +2,28 @@
 name = "mockbook"
 authors = [{ name = "Yuchan Lee", email = "lasuillard@gmail.com" }]
 readme = "README.md"
-requires-python = ">=3.13, <4.0"
+requires-python = ">=3.13, <3.14"
 dependencies = [
     "nbformat~=5.10.4",
-    "fastapi[standard]~=0.116.1",
-    "jupyterlab~=4.4.1",
-    "faker~=37.6.0",
+    "fastapi[standard]~=0.128.0",
+    "jupyterlab~=4.5.0",
+    "faker~=40.1.0",
     "factory-boy~=3.3.1",
 ]
 dynamic = ["version"]
 
 [dependency-groups]
-dev = ["mypy~=1.17.1", "ruff~=0.12.1", "types-requests>=2.32.0.20250328"]
+dev = [
+    "mypy~=1.19.0",
+    "pre-commit>=4.5.1",
+    "ruff~=0.14.4",
+    "shellcheck-py~=0.11.0.1",
+    "shfmt-py~=3.12.0.2",
+    "types-requests>=2.32.0.20250328",
+]
 
 [tool.uv]
 package = false
-
-[tool.ruff]
-target-version = "py313"
 
 [tool.ruff.lint]
 select = ["ALL"]
@@ -34,7 +38,6 @@ ignore = ["D", "ANN401", "S311"]
 convention = "google"
 
 [tool.mypy]
-python_version = "3.13"
 exclude = ['^\.venv/*', '^test/.*', '^jupyterlab/.*', '^examples/.*']
 namespace_packages = true
 check_untyped_defs = true
@@ -48,3 +51,6 @@ show_error_codes = true
 strict_optional = true
 no_implicit_reexport = false
 explicit_package_bases = true
+
+[tool.setuptools.packages.find]
+include = ["mockbook"]
