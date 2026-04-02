@@ -1,14 +1,4 @@
 repos:
-  - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.13.0-1
-    hooks:
-      - id: shfmt
-
-  - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.11.0.1
-    hooks:
-      - id: shellcheck
-
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
@@ -17,6 +7,19 @@ repos:
 
   - repo: local
     hooks:
+      - id: shfmt
+        name: Format shell scripts with shfmt
+        language: system
+        types: [shell]
+        entry: uv run --frozen shfmt
+        args: [--write]
+
+      - id: shellcheck
+        name: Lint shell scripts with shellcheck
+        language: system
+        types: [shell]
+        entry: uv run --frozen shellcheck
+
       - id: ruff-check
         name: Fix using Ruff
         language: system
