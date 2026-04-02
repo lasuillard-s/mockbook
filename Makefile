@@ -60,10 +60,14 @@ run-jupyter:  ## Run Jupyter Lab
 ci: lint test  ## Run CI tasks
 .PHONY: ci
 
-format:  ## Run autoformatters
+fmt:  ## Run autoformatters
 	uv run shfmt --write $$(git ls-files '*.sh')
 	uv run ruff format .
-.PHONY: format
+.PHONY: fmt
+
+fix:  ## Apply autofixes
+	uv run ruff check --fix .
+.PHONY: fix
 
 lint:  ## Run all linters
 	uv run shellcheck $$(git ls-files '*.sh')

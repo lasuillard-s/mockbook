@@ -1,9 +1,7 @@
 # flake8: noqa: UP035, E501
 import atexit
 import pickle
-from collections.abc import Callable
-from pathlib import Path
-from typing import Any, cast
+from typing import TYPE_CHECKING, Any, cast
 from urllib.parse import urljoin
 
 import pytest
@@ -12,6 +10,10 @@ from filelock import FileLock
 from testcontainers.core.container import DockerContainer
 from testcontainers.core.waiting_utils import wait_container_is_ready
 from typing_extensions import Self
+
+if TYPE_CHECKING:
+    from collections.abc import Callable
+    from pathlib import Path
 
 
 class MockbookContainer(DockerContainer):
