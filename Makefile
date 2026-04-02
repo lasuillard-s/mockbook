@@ -19,10 +19,13 @@ help: Makefile  ## Show help
 # =============================================================================
 install:  ## Install deps
 	git submodule update --init --recursive
-	pre-commit install --install-hooks
 	uv python install
 	uv sync --frozen
 .PHONY: install
+
+init:  ## Initialize the project
+	pre-commit install --install-hooks
+.PHONY: init
 
 update:  ## Update deps and tools
 	uv sync --upgrade
