@@ -23,7 +23,7 @@
       ]
     }
   },
-  "remoteEnv": {
-    "PYTHONPATH": "${containerEnv:PYTHONPATH}:${containerWorkspaceFolder}"
+  "containerEnv": {
+    "PYTHONPATH": "${containerWorkspaceFolder}"
   }
 }
