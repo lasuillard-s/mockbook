@@ -13,7 +13,7 @@ RUN rm -rf /etc/nginx/sites-enabled/default
 WORKDIR /app
 
 # Install uv
-COPY --from=ghcr.io/astral-sh/uv:0.11.17-python3.14-trixie /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.11.17 /uv /uvx /bin/
 
 # Install deps
 ENV UV_SYSTEM_PYTHON=1
