@@ -17,7 +17,7 @@ dev = [
     "mypy~=1.20.0",
     "ruff~=0.15.8",
     "shellcheck-py~=0.11.0.1",
-    "shfmt-py~=3.13.0.3",
+    "shfmt-py~=4.0.0.0",
     "types-requests>=2.32.0.20250328",
 ]
 
