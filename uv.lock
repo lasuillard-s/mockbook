@@ -1003,7 +1003,7 @@ dev = [
     { name = "mypy", specifier = "~=1.20.0" },
     { name = "ruff", specifier = "~=0.15.8" },
     { name = "shellcheck-py", specifier = "~=0.11.0.1" },
-    { name = "shfmt-py", specifier = "~=3.12.0.2" },
+    { name = "shfmt-py", specifier = "~=3.13.0.3" },
     { name = "types-requests", specifier = ">=2.32.0.20250328" },
 ]
 
@@ -1695,9 +1695,16 @@ wheels = [
 
 [[package]]
 name = "shfmt-py"
-version = "3.12.0.2"
+version = "3.13.0.3"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/af/d9/a1ea26749bd19467e9fbfe7b34e6c8df517e01de4028a45b954eebe8c03b/shfmt_py-3.12.0.2.tar.gz", hash = "sha256:6a0dc675b37d000eb236609cf15aedd9e7a538927ea02c57b617908b6f237e9c", size = 4467, upload-time = "2025-07-08T06:54:40.396Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/c2/d9/b10c7de5f24b1e74062d2d0e6b0449526057127223d188510f75a0b9c76c/shfmt_py-3.13.0.3.tar.gz", hash = "sha256:9e3de4e39657f3d9ede7d74cc4383bd462b569646b194eec4e2d8a25dcb181ce", size = 9685, upload-time = "2026-05-13T08:35:32.044Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/2b/d5/05324fff0dd72a1516d9c279f1fd74ed80fa241e3b9d757f9e726ed88b35/shfmt_py-3.13.0.3-py2.py3-none-macosx_10_9_x86_64.whl", hash = "sha256:1d117f21684974b911af650f51ce78705bceff4bdcd59f5dc772c92b518a7b18", size = 1342725, upload-time = "2026-05-13T08:35:25.952Z" },
+    { url = "https://files.pythonhosted.org/packages/95/e6/fec40f24aa72bb1f550f0d1aa9b522dea2d7aace38b2067c277143e57492/shfmt_py-3.13.0.3-py2.py3-none-macosx_11_0_arm64.whl", hash = "sha256:60180da9a5988f4940639474878e7436275cff07bf29f7aeed13fa0d4948c177", size = 1236673, upload-time = "2026-05-13T08:35:27.534Z" },
+    { url = "https://files.pythonhosted.org/packages/c3/b5/60ff5140ba442e3ff3c2d010ac917f09e7fe7fc1dbf3f87c7ff88780f840/shfmt_py-3.13.0.3-py2.py3-none-manylinux2014_aarch64.whl", hash = "sha256:8c30a1e9f78dfb5d8a5410135eae5a6c7a1aa7651957425637b60abee7f4d959", size = 1217861, upload-time = "2026-05-13T08:35:28.597Z" },
+    { url = "https://files.pythonhosted.org/packages/79/ac/259b51b46629a3f8e2d2141f268d5b3c350747b1a38406c894f892293229/shfmt_py-3.13.0.3-py2.py3-none-manylinux2014_x86_64.whl", hash = "sha256:af9d8da5c180b71df6e1811f23e9e9efbba70cb34323931c77fc47393d33c3d6", size = 1349861, upload-time = "2026-05-13T08:35:29.664Z" },
+    { url = "https://files.pythonhosted.org/packages/c8/97/8ba25d90129aa291958005ba18a8456e33f1c34ee9aa2cd304e7dfc0f571/shfmt_py-3.13.0.3-py2.py3-none-win_amd64.whl", hash = "sha256:dc66745ab71346ffd405f263ec99ec3c72d91cd9a4b78ee98376fc2d3cb45368", size = 1426185, upload-time = "2026-05-13T08:35:30.891Z" },
+]
 
 [[package]]
 name = "six"
