@@ -21,12 +21,12 @@ This project uses the following tech stack:
 
 - [Python](https://www.python.org) 3.14
 - [uv](https://docs.astral.sh/uv/) for dependency management and configuration
-- [NGINX](https://nginx.org) for reverse proxy
-- [JupyterLab](https://jupyter.org) for writing mock endpoints
 - [FastAPI](https://fastapi.tiangolo.com) for serving mock endpoints
+- [JupyterLab](https://jupyter.org) for writing mock endpoints
+- [NGINX](https://nginx.org) for reverse proxy
 - [Supervisor](https://supervisord.org) for running services
 - [Ruff](https://docs.astral.sh/ruff/) to format and lint Python code, and [Mypy](https://mypy-lang.org) for type checking
-- [BATS](https://github.com/bats-core/bats-core) for testing shell scripts
+- [shfmt](https://github.com/mvdan/sh) and [shellcheck](https://github.com/koalaman/shellcheck) for formatting and linting shell scripts, and [BATS](https://github.com/bats-core/bats-core) for running tests
 
 ### 📂 Key directory structure
 
@@ -48,6 +48,10 @@ This project uses the following tech stack:
 ## 🔧 Set up the development environment
 
 For development, the following tools are required:
+
+### 🐳 System requirements
+
+You need [Docker](https://www.docker.com) and [Docker Compose](https://docs.docker.com/compose/) installed on your system.
 
 ### ❄️ Tools managed via Nix Flakes
 
