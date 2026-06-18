@@ -39,4 +39,4 @@ if [ -n "$NGINX_RELOADER_DISABLED" ]; then
   echo "NGINX reloader has been disabled."
 fi
 
-exec supervisord -c /app/supervisord/supervisord.conf
+exec supervisord --configuration /app/supervisord/supervisord.conf
