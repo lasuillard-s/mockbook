@@ -34,10 +34,16 @@ jobs:
         run: uv sync
 
       - name: Check formatting of shell scripts
-        run: uv run shfmt --diff $(git ls-files '*.sh')
+        run: |
+          git ls-files '*.sh' \
+            | tee /dev/tty \
+            | xargs uv run shfmt --diff
 
       - name: Lint shell scripts
-        run: uv run shellcheck $(git ls-files '*.sh')
+        run: |
+          git ls-files '*.sh' \
+            | tee /dev/tty \
+            | xargs uv run shellcheck
 
       - name: Check formatting of Python code
         run: uv run ruff format --check .
