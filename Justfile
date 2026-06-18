@@ -56,11 +56,7 @@ build:
 
 # Run full application stack (reuses test setup)
 run:
-    cp --no-clobber .env.example .env
-    docker compose \
-        --file test/docker-compose.yaml \
-        --env-file .env \
-        up --build
+    docker compose up --build
 
 # Run FastAPI server only
 run-fastapi:

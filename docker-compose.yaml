@@ -1,6 +1,6 @@
 services:
   app:
-    build: ..
+    build: .
     environment:
       MOCKBOOK_ARGS: ${MOCKBOOK_ARGS:-}
       MOCKBOOK_AUTORELOAD_DISABLED: ${MOCKBOOK_AUTORELOAD_DISABLED:-}

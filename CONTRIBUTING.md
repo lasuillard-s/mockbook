@@ -38,6 +38,7 @@ This project uses the following tech stack:
 - `scripts/`: Shell scripts for running services
 - `supervisord/`: Supervisor configuration files
 - `test/`: Project tests
+- `docker-compose.yaml`: Docker Compose configuration for local development and testing
 - `docker-entrypoint.sh`: Docker entrypoint script
 - `Dockerfile`: Docker image definition
 - `flake.nix`: Nix Flakes development environment

@@ -1,7 +1,5 @@
 #!/usr/bin/env bats
 
-export COMPOSE_FILE="test/docker-compose.yaml"
-
 setup_file() {
   docker compose up --detach --build --wait --wait-timeout 30
 }

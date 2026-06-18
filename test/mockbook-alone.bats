@@ -1,7 +1,5 @@
 #!/usr/bin/env bats
 
-export COMPOSE_FILE="test/docker-compose.yaml"
-
 setup_file() {
   export MOCKBOOK_AUTORELOAD_DISABLED=1
   export JUPYTERLAB_DISABLED=1
