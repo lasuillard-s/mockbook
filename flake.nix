@@ -21,6 +21,7 @@
             pre-commit
             just
             uv
+            nginx
           ];
           shellHook = ''
             pre-commit install
