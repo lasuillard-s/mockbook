@@ -3,6 +3,7 @@ _default:
 
 # Install deps and tools
 install:
+    git submodule update --init --recursive
     uv python install
     uv sync --frozen
 
