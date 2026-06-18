@@ -11,10 +11,10 @@ Docker image for writing and serving mocks with Jupyter and FastAPI.
 
 Mockbook is a simple FastAPI application with the following features:
 
-- Write mock endpoints with a [Jupyter](https://jupyter.org/) Notebook to manage mock endpoints
-- Serve mock endpoints with a [FastAPI](https://fastapi.tiangolo.com/) server and live reloading.
-- Preconfigured [NGINX](https://nginx.org/) reverse proxy with a reloader triggered by configuration file changes for flexible mocking.
-- Preinstalled libraries for writing mocks, such as: [factory-boy](https://github.com/FactoryBoy/factory_boy), [Faker](https://github.com/joke2k/faker)
+- **Write mock endpoints** with a [Jupyter](https://jupyter.org/) Notebook to manage mock endpoints
+- **Serve mock endpoints** with a [FastAPI](https://fastapi.tiangolo.com/) server and live reloading.
+- Preconfigured [NGINX](https://nginx.org/) **reverse proxy with a reloader** triggered by configuration file changes for flexible mocking.
+- **Preinstalled libraries** for writing mocks, such as: [factory-boy](https://github.com/FactoryBoy/factory_boy), [Faker](https://github.com/joke2k/faker)
 
 ## 🚀 How to use
 
