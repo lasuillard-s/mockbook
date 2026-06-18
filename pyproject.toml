@@ -4,21 +4,21 @@ authors = [{ name = "Yuchan Lee", email = "lasuillard@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.14, <3.15"
 dependencies = [
-    "nbformat~=5.10.4",
-    "fastapi[standard]~=0.136.1",
-    "jupyterlab~=4.5.0",
-    "faker~=40.20.0",
-    "factory-boy~=3.3.1",
+  "nbformat==5.10.4",
+  "fastapi[standard]==0.136.3",
+  "jupyterlab==4.5.7",
+  "faker==40.20.0",
+  "factory-boy==3.3.3",
 ]
 dynamic = ["version"]
 
 [dependency-groups]
 dev = [
-    "mypy~=2.1.0",
-    "ruff~=0.15.8",
-    "shellcheck-py~=0.11.0.1",
-    "shfmt-py~=4.0.0.0",
-    "types-requests>=2.32.0.20250328",
+  "mypy==2.1.0",
+  "ruff==0.15.15",
+  "shellcheck-py==0.11.0.1",
+  "shfmt-py==4.0.0",
+  "types-requests==2.33.0.20260518",
 ]
 
 [tool.uv]
@@ -26,7 +26,12 @@ package = false
 
 [tool.ruff.lint]
 select = ["ALL"]
-ignore = ["D", "ANN401", "S311"]
+ignore = [
+  "ANN401",
+  "COM812", # Formatting conflict
+  "D",
+  "S311",
+]
 
 [tool.ruff.lint.per-file-ignores]
 "jupyterlab/config.py" = ["ALL"]
