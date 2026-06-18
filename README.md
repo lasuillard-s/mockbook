@@ -59,7 +59,7 @@ graph LR
 ### 📂 Mount points
 
 - `/app/mockbook/notebooks` for Jupyter notebooks. The Mockbook app watches `/app/mockbook/` for changes and reloads FastAPI automatically.
-- `/app/mockbook/nginx/conf.d` for NGINX configuration. The auto reloader watches this directory and reloads NGINX automatically.
+- `/app/mockbook/nginx` for NGINX configuration. The auto reloader watches this directory and reloads NGINX automatically.
 
 Please check the [examples](/examples) directory for more usage examples.
 

@@ -13,14 +13,14 @@ This project consists of the following components:
 - Python package (`mockbook`), a FastAPI application serving mock endpoints with live reloading on file changes (`/app/mockbook`)
 - Preconfigured JupyterLab for writing mock endpoints
 - Preconfigured NGINX reverse proxy for full mocking flexibility
-- NGINX reloader triggered by configuration file changes (`/app/mockbook/nginx/conf.d`)
+- NGINX reloader triggered by configuration file changes (`/app/mockbook/nginx`)
 
 ### 🛠️ Tech stack
 
 This project uses the following tech stack:
 
 - [Python](https://www.python.org) 3.14
-- [uv](https://docs.astral.sh/uv/) for dependency management and packaging
+- [uv](https://docs.astral.sh/uv/) for dependency management and configuration
 - [NGINX](https://nginx.org) for reverse proxy
 - [JupyterLab](https://jupyter.org) for writing mock endpoints
 - [FastAPI](https://fastapi.tiangolo.com) for serving mock endpoints

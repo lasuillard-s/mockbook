@@ -54,7 +54,7 @@ fix:
 build:
     docker build --tag mockbook:local .
 
-# Run full application stack (reuses test setup)
+# Run application via Docker Compose
 run:
     docker compose up --build
 
