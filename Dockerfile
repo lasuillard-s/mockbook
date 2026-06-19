@@ -5,10 +5,10 @@ RUN apt-get update && apt-get install -y \
     nginx \
     supervisor \
     inotify-tools \
-    && rm -rf /var/lib/apt/lists/*
+    && rm --recursive --force /var/lib/apt/lists/*
 
 # Remove NGINX welcome page
-RUN rm -rf /etc/nginx/sites-enabled/default
+RUN rm --recursive --force /etc/nginx/sites-enabled/default
 
 WORKDIR /app
 

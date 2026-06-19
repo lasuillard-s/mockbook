@@ -6,18 +6,26 @@ on:
   pull_request:
     branches: [main]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   UV_FROZEN: 1
 
 jobs:
   lint:
+    name: Lint
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      - uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
         with:
           version: latest
           enable-cache: true
@@ -25,32 +33,42 @@ jobs:
       - name: Install deps
         run: uv sync
 
-      - name: Format check (shfmt)
-        run: uv run shfmt --diff $(git ls-files '*.sh')
+      - name: Check formatting of shell scripts
+        run: |
+          git ls-files '*.sh' \
+            | tee /dev/stderr \
+            | xargs uv run shfmt --diff
 
-      - name: Lint (shellcheck)
-        run: uv run shellcheck $(git ls-files '*.sh')
+      - name: Lint shell scripts
+        run: |
+          git ls-files '*.sh' \
+            | tee /dev/stderr \
+            | xargs uv run shellcheck
 
-      - name: Lint (ruff)
-        run: uv run ruff check .
-
-      - name: Format check (ruff)
+      - name: Check formatting of Python code
         run: uv run ruff format --check .
 
-      - name: Type check (mypy)
+      - name: Lint Python code
+        run: uv run ruff check .
+
+      - name: Type check Python code
         run: uv run mypy --show-error-codes --pretty .
 
   test:
+    name: Test
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     permissions:
       contents: read
     steps:
-      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
+      - name: Checkout
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
         with:
           submodules: true
 
-      - uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5 # v4.1.0
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@d7f5e7f509e45cec5c76c4d5afdd7de93d0b3df5 # v4.1.0
+
       - name: Build Docker image
         uses: docker/build-push-action@f9f3042f7e2789586610d6e8b85c8f03e5195baf # v7.2.0
         with:

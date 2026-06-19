@@ -8,6 +8,7 @@
     "ms-python.python",
     "ms-python.vscode-pylance",
     "ms-toolsai.jupyter",
-    "timonwong.shellcheck"
+    "timonwong.shellcheck",
+    "ahmadalli.vscode-nginx-conf"
   ]
 }
