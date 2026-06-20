@@ -24,6 +24,9 @@ dev = [
 [tool.uv]
 package = false
 
+[tool.ruff]
+extend-exclude = ["test/bats", "test/test_helper"]
+
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
