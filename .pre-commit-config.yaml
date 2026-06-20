@@ -9,33 +9,33 @@ repos:
   - repo: local
     hooks:
       - id: shellcheck
-        name: Lint shell scripts with shellcheck
+        name: shellcheck
         language: system
         types: [shell]
         entry: uv run --frozen shellcheck
 
       - id: ruff-check
-        name: Fix using Ruff
+        name: ruff check
         language: system
         types: [python]
         entry: uv run --frozen ruff check
         args: [--fix]
 
       - id: shfmt
-        name: Format shell scripts with shfmt
+        name: shfmt
         language: system
         types: [shell]
         entry: uv run --frozen shfmt
         args: [--write]
 
       - id: ruff-format
-        name: Format using Ruff
+        name: ruff format
         language: system
         types: [python]
         entry: uv run --frozen ruff format
 
       - id: mypy
-        name: Type check with mypy
+        name: mypy
         language: system
         types: [python]
         pass_filenames: false
