@@ -7,7 +7,7 @@ dependencies = [
   "nbformat==5.10.4",
   "fastapi[standard]==0.136.3",
   "jupyterlab==4.5.9",
-  "faker==40.22.0",
+  "faker==40.23.0",
   "factory-boy==3.3.3",
 ]
 dynamic = ["version"]
