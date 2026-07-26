@@ -14,11 +14,11 @@ dynamic = ["version"]
 
 [dependency-groups]
 dev = [
-  "mypy==2.1.0",
-  "ruff==0.15.17",
+  "mypy==2.2.0",
+  "ruff==0.15.21",
   "shellcheck-py==0.11.0.1",
   "shfmt-py==4.0.0",
-  "types-requests==2.33.0.20260518",
+  "types-requests==2.33.0.20260712",
 ]
 
 [tool.uv]
