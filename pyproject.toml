@@ -18,7 +18,7 @@ dev = [
   "ruff==0.16.10",
   "shellcheck-py==0.11.0.1",
   "shfmt-py==4.2.0",
-  "types-requests==2.33.0.20260906",
+  "types-requests==2.33.0.20261006",
 ]
 
 [tool.uv]
