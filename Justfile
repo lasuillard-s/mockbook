@@ -9,6 +9,7 @@ install:
 
 # Update deps and tools
 update:
+    nix flake update
     uv sync --upgrade
     pre-commit autoupdate
 
