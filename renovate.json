@@ -2,30 +2,5 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "local>lasuillard-s/renovate-config"
-  ],
-  "ignorePaths": [
-    "examples/**"
-  ],
-  "packageRules": [
-    {
-      "description": "Group non-major Python runtime updates separately from development tools and interpreter upgrades",
-      "matchManagers": [
-        "pep621"
-      ],
-      "matchDatasources": [
-        "pypi"
-      ],
-      "matchDepTypes": [
-        "project.dependencies",
-        "project.optional-dependencies"
-      ],
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "groupName": "Python Runtime (non-major)",
-      "groupSlug": "python-runtime",
-      "automerge": false
-    }
   ]
 }
