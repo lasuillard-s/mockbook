@@ -7,8 +7,6 @@ from __future__ import annotations
 
 import io
 import os
-import sys
-import types
 from importlib.abc import Loader, MetaPathFinder
 from importlib.util import spec_from_loader
 from typing import TYPE_CHECKING, Any
@@ -19,6 +17,7 @@ from nbformat import read
 
 if TYPE_CHECKING:
     from collections.abc import Sequence
+    from types import ModuleType
 
 
 def find_notebook(fullname: str, path: Sequence[str] | None = None) -> str | None:
@@ -52,8 +51,9 @@ class NotebookLoader(Loader):
         self.shell = InteractiveShell.instance()
         self.path = path
 
-    def load_module(self, fullname: str) -> types.ModuleType:
-        """import a notebook as a module"""
+    def exec_module(self, module: ModuleType) -> None:
+        """Execute a notebook in its module namespace."""
+        fullname = module.__name__
         path = find_notebook(fullname, self.path)
         if not path:
             msg = f"Notebook not found: {fullname}"
@@ -65,19 +65,13 @@ class NotebookLoader(Loader):
         with io.open(path, "r", encoding="utf-8") as f:  # noqa: UP020
             nb = read(f, 4)
 
-        # create the module and add it to sys.modules
-        # if name in sys.modules:
-        #    return sys.modules[name]  # noqa: ERA001
-        mod = types.ModuleType(fullname)
-        mod.__file__ = path
-        mod.__loader__ = self
-        mod.__dict__["get_ipython"] = get_ipython
-        sys.modules[fullname] = mod
+        module.__file__ = path
+        module.__dict__["get_ipython"] = get_ipython
 
         # extra work to ensure that magics that would affect the user_ns
         # actually affect the notebook module's ns
         save_user_ns = self.shell.user_ns
-        self.shell.user_ns = mod.__dict__
+        self.shell.user_ns = module.__dict__
 
         try:
             for cell in nb.cells:
@@ -87,10 +81,9 @@ class NotebookLoader(Loader):
                         cell.source,
                     )
                     # run the code in themodule
-                    exec(code, mod.__dict__)  # noqa: S102
+                    exec(code, module.__dict__)  # noqa: S102
         finally:
             self.shell.user_ns = save_user_ns
-        return mod
 
 
 class NotebookFinder(MetaPathFinder):

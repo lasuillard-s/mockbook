@@ -19,7 +19,7 @@ This project consists of the following components:
 
 This project uses the following tech stack:
 
-- [Python](https://www.python.org) 3.14
+- [Python](https://www.python.org) 3.15
 - [uv](https://docs.astral.sh/uv/) for dependency management and configuration
 - [FastAPI](https://fastapi.tiangolo.com) for serving mock endpoints
 - [JupyterLab](https://jupyter.org) for writing mock endpoints
